@@ -1,68 +1,235 @@
-/* Reset and base styles */
+
+/* ================================
+   FUNSITE — Relaxing Mountain Theme
+   ================================ */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body, html {
-    height: 100%;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #ffffff;
-    background-color: #111;
+html {
+    scroll-behavior: smooth;
+    background: #14211f;
 }
 
-/* Parallax Section Styling */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #ffffff;
+    background: #14211f;
+    overflow-x: hidden;
+}
+
+/* Mountain parallax sections */
+
 .parallax-section {
     position: relative;
-    height: 100vh; /* Full viewport height */
+    min-height: 100vh;
+    min-height: 100svh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    padding: 40px 20px;
+
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-attachment: fixed; /* This creates the parallax effect */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+    background-attachment: fixed;
+
+    isolation: isolate;
 }
 
-/* Assign unique background images to each section */
+/* Soft dark gradient over each photograph */
+
+.parallax-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+
+    background: linear-gradient(
+        to bottom,
+        rgba(12, 25, 30, 0.12),
+        rgba(12, 25, 30, 0.30) 50%,
+        rgba(12, 25, 30, 0.55)
+    );
+}
+
+/* Mountain photograph backgrounds */
+
 .section-one {
-    background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb');
+    background-image: url(
+        "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=2400&q=85"
+    );
+    background-position: center 55%;
 }
 
 .section-two {
-    background-image: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b');
+    background-image: url(
+        "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=2400&q=85"
+    );
+    background-position: center 45%;
 }
 
-/* Static Content Sections */
+/* Additional scenes for your later sections */
+
+.section-three {
+    background-image: url(
+        "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=2400&q=85"
+    );
+    background-position: center 55%;
+}
+
+.section-four {
+    background-image: url(
+        "https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=2400&q=85"
+    );
+    background-position: center;
+}
+
+.section-five {
+    background-image: url(
+        "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=2400&q=85"
+    );
+    background-position: center 50%;
+}
+
+.section-six {
+    background-image: url(
+        "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=2400&q=85"
+    );
+    background-position: center;
+}
+
+.section-seven {
+    background-image: url(
+        "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=2400&q=85"
+    );
+    background-position: center;
+}
+
+.section-eight {
+    background-image: url(
+        "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=2400&q=85"
+    );
+    background-position: center;
+}
+
+/* Peaceful sections between the photographs */
+
 .static-section {
-    height: 100vh;
-    background-color: #1a1a1a;
+    position: relative;
+    min-height: 55vh;
+    padding: 80px 20px;
+
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 0 20px;
+
+    background: linear-gradient(
+        145deg,
+        #203a38,
+        #294744 55%,
+        #344d46
+    );
 }
 
-/* Content Box Styling */
+/* Gentle variation between static sections */
+
+.static-section:nth-of-type(4n) {
+    background: linear-gradient(
+        145deg,
+        #354d48,
+        #263f3d
+    );
+}
+
+/* Frosted-glass text panels */
+
 .content {
+    position: relative;
     max-width: 800px;
-    padding: 40px;
-    background: rgba(0, 0, 0, 0.6); /* Semi-transparent dark overlay for readability */
-    border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    padding: clamp(28px, 5vw, 55px);
+
+    background: rgba(16, 31, 32, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-radius: 24px;
+
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.18);
 }
 
-.content h1, .content h2 {
-    font-size: 3rem;
-    margin-bottom: 20px;
-    letter-spacing: 2px;
+/* Headings */
+
+.content h1,
+.content h2 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 500;
+    letter-spacing: 1px;
+    line-height: 1.15;
+    margin-bottom: 22px;
+
+    color: #f4f5e9;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
 }
+
+.content h3 {
+    font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+    font-weight: 400;
+    margin-bottom: 18px;
+    color: #d8e8df;
+}
+
+/* Paragraphs */
 
 .content p {
-    font-size: 1.2rem;
-    line-height: 1.6;
-    color: #ddd;
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    line-height: 1.9;
+    color: #e3ebe6;
 }
+
+/* Selection color */
+
+::selection {
+    background: #a7c9b5;
+    color: #172b28;
+}
+
+/* Mobile support:
+   fixed backgrounds can behave poorly on phones */
+
+@media (max-width: 768px) {
+    .parallax-section {
+        background-attachment: scroll;
+        min-height: 85svh;
+    }
+
+    .content {
+        padding: 30px 24px;
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+    }
+
+    .static-section {
+        min-height: 50svh;
+        padding: 60px 20px;
+    }
+}
+
+/* Respect users who prefer reduced motion */
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+}
+
+
